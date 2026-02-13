@@ -16,7 +16,7 @@ HTML, CSS and Javascript
 ## Team
 Prithvi, Ujas and Raghav: Code Crafters
 
-##SDGs connected to theme
+## SDGs connected to theme
 SDG 3 (Good Health and Well-being)
 Household stress impacts the parents negatively. Constant reminders, arguments about chores, and uneven responsibility can affect mental well-being for both parents and kids.
 Our product will help:
