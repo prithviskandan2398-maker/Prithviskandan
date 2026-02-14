@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Tasks - Family Task Manager</title>
+  <link href="child.css" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+      <div class="header-content">
+       <div class="header-left">
+       <div class="logo">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+           </svg>
+       </div>
+       <div class="brand">
+           <h2 id="childName">My Tasks</h2>
+           </p>Complete tasks and earn rewards!</p>
+       </div>
+       </div>
+       <div class="user-info">
+       <div class="user-details">
+       <div class="user-name" id="userName">Child</div>
+       <div class="user-points" id="userPoints">0 points</div>
+       </div>
+       <div class="user-avatar" id="userAvatar" style="background: #8B7355;">A</div>
+       </div>
+       </div>
+  </header>
+
+
+   <nav class="nav">
+       <div class="nav-content">
+       <button class="nav-item active" onclick="switchTab('tasks')">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+           </svg>My Tasks</button>
+       <button class="nav-item" onclick="switchTab('rewards')">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+           </svg>Rewards</button>
+      </div>
+   </nav>
+
+
+   <main class="container">
+       <div id="tasksTab" class="tab-content">
+       <div class="stats-banner">
+       <div class="stats-info">
+           <h3>Keep Going!</h3>
+           <p id="taskStats">You have tasks to complete</p>
+       <div id="badgeDisplay"></div>
+       </div>
+       <div class="stats-points">
+       <div class="points-big" id="pointsDisplay">0</div>
+       <div class="points-label">points earned</div>
+       </div>
+       </div>
+
+
+       <div class="section-card">
+       <div class="section-header">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+           </svg>
+           <h3>My Tasks</h3>
+       </div>
+       <div id="myTasks"></div>
+       </div>
+
+
+       <div class="section-card">
+       <div class="section-header">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+           </svg>
+           <h3>Completed</h3>
+       </div>
+       <div id="completedTasks"></div>
+       </div>
+       </div>
+
+
+       <div id="rewardsTab" class="tab-content hidden">
+       <div class="stats-banner">
+       <div class="stats-info">
+           <h3>Redeem Rewards</h3>
+           <p>Use your points to get awesome rewards!</p>
+       </div>
+       <div class="stats-points">
+       <div class="points-big" id="pointsDisplayRewards">0</div>
+       <div class="points-label">points available</div>
+       </div>
+       </div>
+
+
+       <div class="section-card">
+       <div class="section-header">
+           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+           </svg>
+           <h3>Available Rewards</h3>
+       </div>
+       <div id="rewardsList" class="rewards-grid"></div>
+       </div>
+       </div>
+</main>
+<script src="child.js"></script>
+</body>
+</html>
+
+

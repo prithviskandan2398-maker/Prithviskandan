@@ -1,282 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Family Task Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="parent.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Task Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="parent.css">
 </head>
 <body>
 
-    <div id="landingPage" class="landing-page">
-        <div class="landing-container">
-            <div class="icon-wrapper">
-                <div class="icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-            </div>
-            <h1>Family Task Manager</h1>
-            <p class="subtitle">Turn chores into achievements</p>
-            <div class="button-group">
-                <button class="btn-primary" onclick="startApp('parent')">Sign in as Parent</button>
-                <button class="btn-secondary" onclick="startApp('child')">Sign in as Child</button>
-            </div>
-            <div class="divider"></div>
-            <div class="features">
-                <div class="feature-item">
-                    <span class="bullet">•</span>
-                    <p>Parents assign tasks with point values</p>
-                </div>
-                <div class="feature-item">
-                    <span class="bullet">•</span>
-                    <p>Children complete tasks and earn points</p>
-                </div>
-                <div class="feature-item">
-                    <span class="bullet">•</span>
-                    <p>Unlock badges and redeem rewards</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="mainApp" class="hidden">
-        <header class="header">
-            <div class="header-content">
-                <div class="logo">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <div class="brand">
-                    <h2 id="parentName">Parent Name</h2>
-                    <p>Household productivity made simple</p>
-                </div>
-            </div>
-        </header>
 
-        <nav class="nav">
-            <div class="nav-content">
-                <button class="nav-item active" onclick="switchTab('dashboard')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                    </svg>
-                    Dashboard
-                </button>
-                <button class="nav-item" onclick="switchTab('tasks')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                    </svg>
-                    Tasks
-                </button>
-                <button class="nav-item" onclick="switchTab('rewards')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                    </svg>
-                    Rewards
-                </button>
-                <button class="nav-item" onclick="switchTab('family')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                    </svg>
-                    Family
-                </button>
-                <button class="nav-item" onclick="switchTab('settings')">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    Settings
-                </button>
-            </div>
-        </nav>
 
-        <main class="container">
-            <div id="dashboardTab" class="tab-content">
-                <div class="welcome-banner">
-                    <h3>Welcome back</h3>
-                    <p id="welcomeMessage">You have 0 tasks waiting and 0 family members</p>
-                </div>
+  <div id="landingPage" class="landing-page">
+      <div class="landing-container">
+          <div class="icon-wrapper">
+              <div class="icon">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+              </div>
+          </div>
+          <h1>Family Task Manager</h1>
+          <p class="subtitle">Turn chores into achievements</p>
+          <div class="button-group">
+              <button class="btn-primary" onclick="startApp('parent')">Sign in as Parent</button>
+              <button class="btn-secondary" onclick="startApp('child')">Sign in as Child</button>
+          </div>
+          <div class="divider"></div>
+          <div class="features">
+              <div class="feature-item">
+                  <span class="bullet">•</span>
+                  <p>Parents assign tasks with point values</p>
+              </div>
+              <div class="feature-item">
+                  <span class="bullet">•</span>
+                  <p>Children complete tasks and earn points</p>
+              </div>
+              <div class="feature-item">
+                  <span class="bullet">•</span>
+                  <p>Unlock badges and redeem rewards</p>
+              </div>
+          </div>
+      </div>
+  </div>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon blue">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                                </svg>
-                            </div>
-                            <h3 class="stat-title">Pending Tasks</h3>
-                        </div>
-                        <p class="stat-value blue" id="statPending">0</p>
-                    </div>
 
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon green">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            </div>
-                            <h3 class="stat-title">Completed</h3>
-                        </div>
-                        <p class="stat-value green" id="statCompleted">0</p>
-                    </div>
 
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon red">
-                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="stat-title">Overdue</h3>
-                        </div>
-                        <p class="stat-value red" id="statOverdue">0</p>
-                    </div>
-                </div>
 
-                <div class="section-card">
-                    <div class="section-header">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                        </svg>
-                        <h3>Family Leaderboard</h3>
-                    </div>
-                    <div id="leaderboard"></div>
-                </div>
+  <div id="mainApp" class="hidden">
+      <header class="header">
+          <div class="header-content">
+              <div class="logo">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+              </div>
+              <div class="brand">
+                  <h2 id="parentName">Parent Name</h2>
+                  <p>Household productivity made simple</p>
+              </div>
+          </div>
+      </header>
 
-                <div class="section-card">
-                    <div class="section-header">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
-                        </svg>
-                        <h3>Recent Tasks</h3>
-                    </div>
-                    <div id="recentTasks"></div>
-                </div>
-            </div>
 
-            <div id="tasksTab" class="tab-content hidden">
-                <div class="section-card">
-                    <h2 class="section-title">Create New Task</h2>
-                    <form id="taskForm">
-                        <div class="form-grid">
-                            <input type="text" id="taskTitle" placeholder="Task title..." required>
-                            <select id="taskAssignee">
-                                <option value="">Assign to...</option>
-                            </select>
-                            <div class="form-group-full">
-                                <textarea id="taskDescription" placeholder="Description..."></textarea>
-                            </div>
-                            <input type="number" id="taskPoints" placeholder="Points" value="10" min="0">
-                            <input type="date" id="taskDueDate">
-                        </div>
-                        <button type="submit" class="btn-primary">Add Task</button>
-                    </form>
-                </div>
 
-                <div class="section-card">
-                    <h3 class="task-list-title">Pending Tasks</h3>
-                    <div id="pendingTasks"></div>
-                </div>
 
-                <div class="section-card">
-                    <h3 class="task-list-title">Completed Tasks</h3>
-                    <div id="completedTasks"></div>
-                </div>
-            </div>
+      <nav class="nav">
+          <div class="nav-content">
+              <button class="nav-item active" onclick="switchTab('dashboard')">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                  </svg>
+                  Dashboard
+              </button>
+              <button class="nav-item" onclick="switchTab('tasks')">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  Tasks
+              </button>
+              <button class="nav-item" onclick="switchTab('rewards')">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
+                  </svg>
+                  Rewards
+              </button>
+              <button class="nav-item" onclick="switchTab('family')">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                  </svg>
+                  Family
+              </button>
+              <button class="nav-item" onclick="switchTab('settings')">
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  </svg>
+                  Settings
+              </button>
+          </div>
+      </nav>
 
-            <div id="rewardsTab" class="tab-content hidden">
-                <div class="section-card">
-                    <h2 class="section-title">Create New Reward</h2>
-                    <form id="rewardForm">
-                        <div class="form-grid">
-                            <input type="text" id="rewardTitle" placeholder="Reward title..." required>
-                            <input type="number" id="rewardPoints" placeholder="Points required" value="50" min="0">
-                            <input type="text" id="rewardIcon" placeholder="Icon (emoji)" value="⭐" maxlength="2">
-                        </div>
-                        <button type="submit" class="btn-primary">Add Reward</button>
-                    </form>
-                </div>
 
-                <div class="section-card">
-                    <h3 class="section-title">Available Rewards</h3>
-                    <div id="rewardsList" class="rewards-grid"></div>
-                </div>
-            </div>
 
-            <div id="familyTab" class="tab-content hidden">
-                <div class="section-card">
-                    <h2 class="section-title">Add Family Member</h2>
-                    <form id="memberForm">
-                        <div class="form-grid">
-                            <input type="text" id="memberName" placeholder="Name..." required>
-                            <select id="memberAvatar">
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
-                                <option value="D">D</option>
-                                <option value="E">E</option>
-                                <option value="F">F</option>
-                                <option value="G">G</option>
-                                <option value="H">H</option>
-                                <option value="I">I</option>
-                                <option value="J">J</option>
-                            </select>
-                            <select id="memberColor">
-                                <option value="#8B7355">#8B7355</option>
-                                <option value="#9C8767">#9C8767</option>
-                                <option value="#A67C52">#A67C52</option>
-                                <option value="#7D6E5D">#7D6E5D</option>
-                                <option value="#B8A491">#B8A491</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn-primary">Add Member</button>
-                    </form>
-                </div>
 
-                <div class="section-card">
-                    <h3 class="section-title">Family Members</h3>
-                    <div id="membersList" class="members-grid"></div>
-                </div>
-            </div>
+      <main class="container">
+          <div id="dashboardTab" class="tab-content">
+              <div class="welcome-banner">
+                  <h3>Welcome back</h3>
+                  <p id="welcomeMessage">You have 0 tasks waiting and 0 family members</p>
+              </div>
 
-            <div id="settingsTab" class="tab-content hidden">
-                <div class="section-card">
-                    <h2 class="section-title">Settings</h2>
-                    
-                    <div class="settings-group">
-                        <label class="settings-label">Parent Name</label>
-                        <input type="text" id="settingsParentName" placeholder="Your name...">
-                    </div>
 
-                    <div class="settings-group">
-                        <div class="toggle-container">
-                            <div class="toggle-info">
-                                <h4>Parent Approval Mode</h4>
-                                <p>Tasks require approval before awarding points</p>
-                            </div>
-                            <label class="toggle">
-                                <input type="checkbox" id="parentApprovalToggle">
-                                <span class="toggle-slider"></span>
-                            </label>
-                        </div>
-                    </div>
 
-                    <div class="settings-group">
-                        <button onclick="resetTasks()" class="btn-primary btn-danger">Reset All Tasks</button>
-                    </div>
 
-                    <div class="settings-group">
-                        <button onclick="resetEverything()" class="btn-primary btn-danger">Reset Everything</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+              <div class="stats-grid">
+                  <div class="stat-card">
+                      <div class="stat-header">
+                          <div class="stat-icon blue">
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                              </svg>
+                          </div>
+                          <h3 class="stat-title">Pending Tasks</h3>
+                      </div>
+                      <p class="stat-value blue" id="statPending">0</p>
+                  </div>
+
+
+
+
+                  <div class="stat-card">
+                      <div class="stat-header">
+                          <div class="stat-icon green">
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                              </svg>
+                          </div>
+                          <h3 class="stat-title">Completed</h3>
+                      </div>
+                      <p class="stat-value green" id="statCompleted">0</p>
+                  </div>
+
+
+
+
+                  <div class="stat-card">
+                      <div class="stat-header">
+                          <div class="stat-icon red">
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                              </svg>
+                          </div>
+                          <h3 class="stat-title">Overdue</h3>
+                      </div>
+                      <p class="stat-value red" id="statOverdue">0</p>
+                  </div>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <div class="section-header">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                      </svg>
+                      <h3>Family Leaderboard</h3>
+                  </div>
+                  <div id="leaderboard"></div>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <div class="section-header">
+                      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                      </svg>
+                      <h3>Recent Tasks</h3>
+                  </div>
+                  <div id="recentTasks"></div>
+              </div>
+          </div>
+
+
+
+
+          <div id="tasksTab" class="tab-content hidden">
+              <div class="section-card">
+                  <h2 class="section-title">Create New Task</h2>
+                  <form id="taskForm">
+                      <div class="form-grid">
+                          <input type="text" id="taskTitle" placeholder="Task title..." required>
+                          <select id="taskAssignee">
+                              <option value="">Assign to...</option>
+                          </select>
+                          <div class="form-group-full">
+                              <textarea id="taskDescription" placeholder="Description..."></textarea>
+                          </div>
+                          <input type="number" id="taskPoints" placeholder="Points" value="10" min="0">
+                          <input type="date" id="taskDueDate">
+                      </div>
+                      <button type="submit" class="btn-primary">Add Task</button>
+                  </form>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <h3 class="task-list-title">Pending Tasks</h3>
+                  <div id="pendingTasks"></div>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <h3 class="task-list-title">Completed Tasks</h3>
+                  <div id="completedTasks"></div>
+              </div>
+          </div>
+
+
+
+
+          <div id="rewardsTab" class="tab-content hidden">
+              <div class="section-card">
+                  <h2 class="section-title">Create New Reward</h2>
+                  <form id="rewardForm">
+                      <div class="form-grid">
+                          <input type="text" id="rewardTitle" placeholder="Reward title..." required>
+                          <input type="number" id="rewardPoints" placeholder="Points required" value="50" min="0">
+                          <input type="text" id="rewardIcon" placeholder="Icon (emoji)" value="⭐" maxlength="2">
+                      </div>
+                      <button type="submit" class="btn-primary">Add Reward</button>
+                  </form>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <h3 class="section-title">Available Rewards</h3>
+                  <div id="rewardsList" class="rewards-grid"></div>
+              </div>
+          </div>
+
+
+
+
+          <div id="familyTab" class="tab-content hidden">
+              <div class="section-card">
+                  <h2 class="section-title">Add Family Member</h2>
+                  <form id="memberForm">
+                      <div class="form-grid">
+                          <input type="text" id="memberName" placeholder="Member name..." required>
+                          <div style="display: flex; gap: 10px;">
+                              <input type="text" id="memberCode" placeholder="Member code..." readonly style="flex: 1;">
+                              <button type="button" onclick="generateMemberCode()" class="btn-primary" style="flex: 0;">Generate Code</button>
+                          </div>
+                      </div>
+                      <button type="submit" class="btn-primary">Add Member</button>
+                  </form>
+              </div>
+
+
+
+
+              <div class="section-card">
+                  <h3 class="section-title">Family Members</h3>
+                  <div id="membersList" class="members-grid"></div>
+              </div>
+          </div>
+
+
+
+
+          <div id="settingsTab" class="tab-content hidden">
+              <div class="section-card">
+                  <h2 class="section-title">Settings</h2>
+                
+                  <div class="settings-group">
+                      <label class="settings-label">Parent Name</label>
+                      <input type="text" id="settingsParentName" placeholder="Your name...">
+                  </div>
+
+
+
+
+                  <div class="settings-group">
+                      <div class="toggle-container">
+                          <div class="toggle-info">
+                              <h4>Parent Approval Mode</h4>
+                              <p>Tasks require approval before awarding points</p>
+                          </div>
+                          <label class="toggle">
+                              <input type="checkbox" id="parentApprovalToggle">
+                              <span class="toggle-slider"></span>
+                          </label>
+                      </div>
+                  </div>
+
+
+
+
+                  <div class="settings-group">
+                      <button onclick="resetTasks()" class="btn-primary btn-danger">Reset All Tasks</button>
+                  </div>
+
+
+
+
+                  <div class="settings-group">
+                      <button onclick="resetEverything()" class="btn-primary btn-danger">Reset Everything</button>
+                  </div>
+              </div>
+          </div>
+      </main>
+  </div>
 <script src="parent.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
